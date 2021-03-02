@@ -1,0 +1,212 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <style type="text/css">
+        .style1
+        {
+            width: 100%;
+            height: 595px;
+        }
+        
+        .header
+        {
+            text-align: left;
+            height: 250px;
+        }
+        
+        .nav
+        {
+            text-align: center;
+            /*
+            width: 100%;
+            */
+            
+            width: 90%;
+            margin: 50px auto;
+            
+            height: 10px;
+        }
+        
+        .body
+        {
+            width: 100%;
+        }
+        
+        .content
+        {
+            height: auto;
+        }
+        
+        .sidenav
+        {
+            height: auto;
+            width: 200px;
+        }
+        
+        .footer
+        {
+            text-align: center;
+            width: 100%;
+            color: #FFFFFF;
+        }
+        
+        div.menu
+        {
+            padding: 4px 0px 4px 8px;
+        }
+        
+        div.menu ul
+        {
+            list-style: none;
+            overflow: hidden;
+            margin: 0px;
+            padding: 0px;
+            width: auto;
+        }
+        
+        div.menu ul li a, div.menu ul li a:visited
+        {
+            background-color: #000000;
+            border: 1px #000000 solid;
+            color: #dde4ec;
+            display: block;
+            line-height: 1.35em;
+            padding: 4px 20px;
+            text-decoration: none;
+            white-space: nowrap;
+        }
+        
+        div.menu ul li a:hover
+        {
+            background-color: #bfcbd6;
+            color: #465c71;
+            text-decoration: none;
+        }
+        
+        div.menu ul li a:active
+        {
+            background-color: #465c71;
+            color: #cfdbe6;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body style="height: 800px">
+    <form id="form1" runat="server">
+    <div style="height: 814px">
+        <table class="style1">
+            <tr>
+                <td class="header" 
+                    
+                    
+                    
+                    style="font-family: Arial; font-size: 32pt; background-image: url('/ASP.NET Project - Darren and Esmond/Images/ReduceChildMortality.jpg'); font-weight: bold; vertical-align: top; text-align: left; background-repeat: no-repeat;">
+                    &nbsp;</td>
+            </tr>
+            <tr>
+                <td class="nav" style="background-color: #000000">
+                    <asp:Menu ID="Menu1" runat="server" CssClass="menu" EnableViewState="False" 
+                        IncludeStyleBlock="False" Orientation="Horizontal">
+                        <Items>
+                            <asp:MenuItem Text="Home" Value="Home" NavigateUrl="~/Home.aspx">
+                            </asp:MenuItem>
+                            <asp:MenuItem NavigateUrl="~/ACP.aspx" 
+                                Text="Admin Control Panel" 
+                                Value="ACP"></asp:MenuItem>
+                            <asp:MenuItem NavigateUrl="~/UCP.aspx" 
+                                Text="Control Panel" Value="UCP">
+                            </asp:MenuItem>
+                            <asp:MenuItem Text="Register" Value="Register" 
+                                NavigateUrl="~/Register.aspx">
+                            </asp:MenuItem>
+                            <asp:MenuItem NavigateUrl="~/Event.aspx" Text="Event" Value="Event">
+                            </asp:MenuItem>
+                            <asp:MenuItem NavigateUrl="~/Donate.aspx" Text="Donate" Value="Donate">
+                            </asp:MenuItem>
+                            <asp:MenuItem Text="About Us" Value="AboutUs" NavigateUrl="~/AboutUs.aspx"></asp:MenuItem>
+                            <asp:MenuItem NavigateUrl="~/FAQ.aspx" Text="FAQ" Value="FAQ"></asp:MenuItem>
+                        </Items>
+                    </asp:Menu>
+                </td>
+            </tr>
+            <tr>
+                <td class="body">
+        <table class="style1">
+            <tr>
+                <td style="background-image: url('/ASP.NET Project - Darren and Esmond/Images/Background.jpg'); vertical-align: top;" 
+                    class="sidenav">
+                    <table>
+                        <tr>
+                            <td>
+                                <asp:Label ID="lblUsername" runat="server" Text="Username:"></asp:Label>
+                            </td>
+                            <td>
+                                <asp:TextBox ID="txtUsername" runat="server"></asp:TextBox>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <asp:Label ID="lblPassword" runat="server" Text="Password:"></asp:Label>
+                            </td>
+                            <td>
+                                <asp:TextBox ID="txtPassword" runat="server" TextMode="Password"></asp:TextBox>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                &nbsp;</td>
+                            <td>
+                                <asp:Button ID="btnLogin" runat="server" Text="Login" causesvalidation ="false" 
+                                    onclick="btnLogin_Click" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                &nbsp;</td>
+                            <td>
+                                &nbsp;</td>
+                        </tr>
+                        </table>
+                                <asp:Label ID="lblError" runat="server"></asp:Label>
+                </td>
+                <td class="content" style="vertical-align: top">
+        <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+        
+        </asp:ContentPlaceHolder>
+                </td>
+                <td style="background-image: url('/ASP.NET Project - Darren and Esmond/Images/Background.jpg')" 
+                    class="sidenav">
+                    &nbsp;</td>
+            </tr>
+        </table>
+                </td>
+            </tr>
+            <tr>
+                <td class="footer" style="background-color: #000000">
+                    © TeamSexy 2017. Built by 
+                    <asp:HyperLink ID="HyperLink1" runat="server" 
+                        NavigateUrl="http://www.facebook.com/">Darren</asp:HyperLink>
+&nbsp;and
+                    <asp:HyperLink ID="HyperLink2" runat="server" 
+                        NavigateUrl="http://www.google.com/">Esmond</asp:HyperLink>
+                    <br />
+                    <asp:DropDownList ID="ddlThemes" runat="server" AutoPostBack="True" 
+                        onselectedindexchanged="ddlThemes_SelectedIndexChanged" style="height: 22px" 
+                        Visible="False">
+                        <asp:ListItem>Please Choose Your Theme</asp:ListItem>
+                        <asp:ListItem Value="0">Dark Theme</asp:ListItem>
+                        <asp:ListItem Value="1">Light Theme</asp:ListItem>
+                    </asp:DropDownList>
+                </td>
+            </tr>
+        </table>
+    </div>
+    </form>
+</body>
+</html>
